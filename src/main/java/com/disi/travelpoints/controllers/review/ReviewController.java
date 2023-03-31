@@ -1,7 +1,7 @@
-package com.disi.travelpoints.controllers.admin;
+package com.disi.travelpoints.controllers.review;
 
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class AdminController {
+public class ReviewController {
 }
