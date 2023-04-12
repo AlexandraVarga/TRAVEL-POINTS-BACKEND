@@ -1,5 +1,6 @@
 package com.disi.travelpoints.utils;
 
 public enum RoleEnum {
-    ADMIN, CLIENT
+    ROLE_ADMIN,
+    ROLE_CLIENT
 }

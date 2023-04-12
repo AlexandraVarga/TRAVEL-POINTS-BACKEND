@@ -1,5 +1,6 @@
 package com.disi.travelpoints.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Getter
@@ -7,14 +8,12 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserDto {
+public class LoginDto {
 
-    private Integer id;
-
+    @NotBlank
     private String username;
 
-//    private String password;
-
-    private String userRole;
+    @NotBlank
+    private String password;
 
 }
