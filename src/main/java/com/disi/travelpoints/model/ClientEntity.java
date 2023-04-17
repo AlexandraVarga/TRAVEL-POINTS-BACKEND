@@ -36,4 +36,7 @@ public class ClientEntity {
     @OneToMany(mappedBy = "clientWishlist")
     private List<WishlistEntity> clientsWishlists;
 
+    @OneToOne
+    @JoinColumn(name = "user_entity_id")
+    private UserEntity user;
 }
