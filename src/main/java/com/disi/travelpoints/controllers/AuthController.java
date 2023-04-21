@@ -1,4 +1,4 @@
-package com.disi.travelpoints.controllers.auth;
+package com.disi.travelpoints.controllers;
 
 import com.disi.travelpoints.dto.HttpMessageDto;
 import com.disi.travelpoints.dto.JwtResponse;

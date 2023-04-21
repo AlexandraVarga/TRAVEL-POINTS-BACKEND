@@ -1,0 +1,3 @@
+-- CREATE SEQUENCE client_id_seq MINVALUE 1;
+-- ALTER TABLE client ALTER id set default nextval('client_id_seq');
+-- ALTER  SEQUENCE client_id_seq OWNED BY client.id;

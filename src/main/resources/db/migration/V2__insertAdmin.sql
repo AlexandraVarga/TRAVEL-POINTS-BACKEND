@@ -9,8 +9,8 @@ ALTER TABLE client
     ADD column user_entity_id INT;
 
 ALTER table client
-    ADD constraint fk_client
-        foreign key (user_entity_id) references client (id);
+    ADD constraint fk_global_user
+        foreign key (user_entity_id) references global_user(id);
 
 INSERT INTO global_user (username, email, password, user_role)
 VALUES ('admin', 'admin@mail.com', '1234', 'ROLE_ADMIN');

@@ -1,4 +1,4 @@
-package com.disi.travelpoints.controllers.attractions;
+package com.disi.travelpoints.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 

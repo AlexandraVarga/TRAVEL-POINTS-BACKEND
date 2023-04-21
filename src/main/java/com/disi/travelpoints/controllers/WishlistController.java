@@ -1,4 +1,4 @@
-package com.disi.travelpoints.controllers.wishlist;
+package com.disi.travelpoints.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 

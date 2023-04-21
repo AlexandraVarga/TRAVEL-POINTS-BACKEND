@@ -17,7 +17,7 @@ CREATE TABLE admin
 
 CREATE TABLE client
 (
-    id           int references global_user(id) unique,
+    id           SERIAL PRIMARY key,
     first_name   TEXT,
     last_name    TEXT,
     address      TEXT,

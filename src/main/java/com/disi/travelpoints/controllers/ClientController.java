@@ -1,4 +1,4 @@
-package com.disi.travelpoints.controllers.client;
+package com.disi.travelpoints.controllers;
 
 import com.disi.travelpoints.services.UserService;
 import lombok.AllArgsConstructor;
