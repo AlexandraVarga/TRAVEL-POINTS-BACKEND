@@ -1,11 +1,8 @@
 package com.disi.travelpoints.controllers.client;
 
-import com.disi.travelpoints.services.UserService;
+import com.disi.travelpoints.dto.ClientDto;
 import lombok.AllArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("client")
@@ -13,9 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class ClientController {
 
     @GetMapping("")
-    @PreAuthorize("hasRole('CLIENT')")
     public String test() {
         return "client endpoint";
+    }
+
+    @GetMapping("/dto")
+    public ClientDto testDto() {
+        return ClientDto.builder().firstName("aaaa").build();
     }
 
 }
