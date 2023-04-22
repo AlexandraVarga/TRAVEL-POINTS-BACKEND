@@ -2,20 +2,22 @@ package com.disi.travelpoints.dto.mapper;
 
 import com.disi.travelpoints.dto.RegisterDto;
 import com.disi.travelpoints.dto.UserDto;
+import com.disi.travelpoints.dto.UserPasswordDto;
 import com.disi.travelpoints.model.ClientEntity;
 import com.disi.travelpoints.model.UserEntity;
-import com.disi.travelpoints.security.UserDetailsImpl;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserMapper {
 
-    public static UserEntity toEntity(RegisterDto registerDto) {
+    public UserEntity toEntity(RegisterDto registerDto) {
         return UserEntity.builder()
                 .username(registerDto.getUsername())
                 .email(registerDto.getEmail())
                 .build();
     }
 
-    public static ClientEntity clientToEntity(RegisterDto registerDto) {
+    public ClientEntity clientToEntity(RegisterDto registerDto) {
         return ClientEntity.builder()
                 .firstName(registerDto.getFirstName())
                 .lastName(registerDto.getLastName())
@@ -24,12 +26,23 @@ public class UserMapper {
                 .build();
     }
 
-    public static UserDto toDto(UserDetailsImpl userDetails) {
+    public UserDto toDto(UserEntity userEntity) {
         return UserDto.builder()
-                .id(userDetails.getId())
-                .username(userDetails.getUsername())
-//                .email(userDetails.getEmail())
-                .userRole(userDetails.getAuthorities().stream().findFirst().get().getAuthority())
+                .id(userEntity.getId())
+                .username(userEntity.getUsername())
+                .userRole(userEntity.getUserRole().toString())
+                .build();
+    }
+
+    public UserEntity passwordDtoToEntity(UserPasswordDto userPasswordDto) {
+        return UserEntity.builder()
+                .password(userPasswordDto.getNewPassword())
+                .build();
+    }
+
+    public UserPasswordDto userEntityToPasswordDto(UserEntity userEntity) {
+        return UserPasswordDto.builder()
+                .newPassword(userEntity.getPassword())
                 .build();
     }
 
