@@ -24,4 +24,6 @@ public class TouristAttractionDto {
     private Double discount;
 
     private String visitingDate;
+
+    private String image;
 }
