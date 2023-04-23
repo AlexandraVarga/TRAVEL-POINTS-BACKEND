@@ -105,7 +105,7 @@
 				<configuration>
 					<url>jdbc:postgresql://localhost:5432/postgres</url>
 					<user>postgres</user>
-					<password>postgres</password>
+					<password>1234</password>
 				</configuration>
 			</plugin>
 		</plugins>
