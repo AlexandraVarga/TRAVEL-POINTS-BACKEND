@@ -39,6 +39,9 @@ public class TouristAttractionEntity {
     @Column(name = "visiting_date")
     private String visitingDate;
 
+    @Column(name = "image")
+    private String image;
+
     @OneToMany(mappedBy = "touristAttractionReview")
     private List<ReviewEntity> touristAttractionReviewList;
 
