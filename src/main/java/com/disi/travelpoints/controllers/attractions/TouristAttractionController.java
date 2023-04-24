@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/tourist-attractions")
+@CrossOrigin
 public class TouristAttractionController {
 
     private final TouristAttractionService touristAttractionService;
@@ -39,6 +40,4 @@ public class TouristAttractionController {
         touristAttractionService.deleteAttraction(attractionId);
         return new ResponseEntity<>("Tourist attraction deleted!", HttpStatus.OK);
     }
-
-
 }
