@@ -9,14 +9,4 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class ClientController {
 
-    @GetMapping("")
-    public String test() {
-        return "client endpoint";
-    }
-
-    @GetMapping("/dto")
-    public ClientDto testDto() {
-        return ClientDto.builder().firstName("aaaa").build();
-    }
-
 }

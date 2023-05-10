@@ -1,0 +1,1 @@
+UPDATE global_user SET password='81dc9bdb52d04dc20036dbd8313ed055' WHERE  username='admin';

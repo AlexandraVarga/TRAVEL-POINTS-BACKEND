@@ -20,6 +20,7 @@ public class TouristAttractionMapper {
                 .entryPrice(touristAttractionDto.getEntryPrice())
                 .discount(touristAttractionDto.getDiscount())
                 .visitingDate(touristAttractionDto.getVisitingDate())
+                .image(touristAttractionDto.getImage())
                 .build();
     }
 
@@ -33,6 +34,7 @@ public class TouristAttractionMapper {
                 .entryPrice(touristAttractionEntity.getEntryPrice())
                 .discount(touristAttractionEntity.getDiscount())
                 .visitingDate(touristAttractionEntity.getVisitingDate())
+                .image(touristAttractionEntity.getImage())
                 .build();
     }
 
