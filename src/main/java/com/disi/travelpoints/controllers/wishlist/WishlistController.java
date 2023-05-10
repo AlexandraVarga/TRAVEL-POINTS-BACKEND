@@ -3,6 +3,8 @@ package com.disi.travelpoints.controllers.wishlist;
 import com.disi.travelpoints.dto.TouristAttractionDto;
 import com.disi.travelpoints.dto.WishlistDto;
 import com.disi.travelpoints.services.WishlistService;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,12 +20,12 @@ public class WishlistController {
     }
 
     @GetMapping("/{clientId}")
-    public List<TouristAttractionDto> viewWishlist(@PathVariable Integer clientId) {
+    public List<TouristAttractionDto> viewWishlist(@PathVariable @Valid @Min(value = 1, message = "Client's id must be  > 0") Integer clientId) {
         return wishlistService.viewOwnWishlist(clientId);
     }
 
     @PostMapping("/client/{clientId}/attraction/{attractionId}")
-    public WishlistDto addAttractionToWishlist(@PathVariable Integer clientId, @PathVariable Integer attractionId) {
+    public WishlistDto addAttractionToWishlist(@PathVariable @Min(value = 1, message = "Client's id must be  > 0") Integer clientId, @PathVariable Integer attractionId) {
         return wishlistService.addAttractionToWishlist(clientId, attractionId);
     }
 }
