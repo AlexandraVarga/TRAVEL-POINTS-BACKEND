@@ -37,6 +37,9 @@ public class WishlistService {
     }
 
     public List<TouristAttractionDto> viewOwnWishlist(Integer clientId) {
+        clientRepository.findById(clientId)
+                .orElseThrow(() -> new IllegalArgumentException("Client with " + clientId + " does not exist!"));
+
         List<Integer> wishlistIds = wishlistRepository.findWishlistsByClientId(clientId);
         List<Integer> attractionIds = touristAttractionWishlistRepository.findAllAttractionsByWishlistIds(wishlistIds);
         List<TouristAttractionEntity> attractionEntityList = touristAttractionRepository.findAllByIdList(attractionIds);
