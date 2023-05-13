@@ -1,12 +1,17 @@
 package com.disi.travelpoints.services;
 
+import com.disi.travelpoints.dto.IntervalSearchDto;
 import com.disi.travelpoints.dto.TouristAttractionDto;
+import com.disi.travelpoints.dto.TextSearchDto;
 import com.disi.travelpoints.dto.mapper.TouristAttractionMapper;
 import com.disi.travelpoints.model.TouristAttractionEntity;
 import com.disi.travelpoints.repositories.TouristAttractionRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static com.disi.travelpoints.utils.TouristAttractionFiledNames.*;
 
 @Service
 public class TouristAttractionService {
@@ -54,4 +59,31 @@ public class TouristAttractionService {
         findTouristAttractionEntity(attractionId);
         touristAttractionRepository.deleteById(attractionId);
     }
+
+    public List<TouristAttractionDto> searchAttractions(TextSearchDto textSearchDto) {
+        List<TouristAttractionEntity> touristAttractions;
+        String filterValue = textSearchDto.getValue();
+        switch (textSearchDto.getFilterKey()) {
+            case NAME -> touristAttractions = touristAttractionRepository.findAllByNameContainsIgnoreCase(filterValue);
+            case LOCATION -> touristAttractions = touristAttractionRepository.findAllByLocationContainsIgnoreCase(filterValue);
+            case TEXT_DESCRIPTION -> touristAttractions = touristAttractionRepository.findAllByTextDescriptionContainsIgnoreCase(filterValue);
+            case VISITING_DATE -> touristAttractions = touristAttractionRepository.findAllByVisitingDateContains(filterValue);
+            default -> throw new RuntimeException("Filter unknown!");
+        }
+        return touristAttractionMapper.toDto(touristAttractions);
+    }
+
+    public List<TouristAttractionDto> searchAttractionsByInterval(IntervalSearchDto intervalSearchDto) {
+        List<TouristAttractionEntity> touristAttractions;
+        Long intervalStart = intervalSearchDto.getStart();
+        Long intervalEnd = intervalSearchDto.getEnd();
+        switch (intervalSearchDto.getFilterKey()) {
+            case NR_OF_VISITS -> touristAttractions = touristAttractionRepository.findAllByNrOfVisitsBetween(intervalStart, intervalEnd);
+            case ENTRY_PRICE -> touristAttractions = touristAttractionRepository.findAllByEntryPriceBetween(intervalStart, intervalEnd);
+            case DISCOUNT -> touristAttractions = touristAttractionRepository.findAllByDiscountBetween(intervalStart, intervalEnd);
+            default -> throw new RuntimeException("Filter unknown!");
+        }
+        return touristAttractionMapper.toDto(touristAttractions);
+    }
+
 }

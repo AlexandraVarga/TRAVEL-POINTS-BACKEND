@@ -13,4 +13,19 @@ public interface TouristAttractionRepository extends JpaRepository<TouristAttrac
 
     @Query("select t from TouristAttractionEntity t where t.id in :idList")
     List<TouristAttractionEntity> findAllByIdList(@Param("idList") List<Integer> idList);
+
+    List<TouristAttractionEntity> findAllByNameContainsIgnoreCase(String name);
+
+    List<TouristAttractionEntity> findAllByLocationContainsIgnoreCase(String location);
+
+    List<TouristAttractionEntity> findAllByTextDescriptionContainsIgnoreCase(String textDescription);
+
+    List<TouristAttractionEntity> findAllByNrOfVisitsBetween(long start, long end);
+
+    List<TouristAttractionEntity> findAllByEntryPriceBetween(double start, double end);
+
+    List<TouristAttractionEntity> findAllByDiscountBetween(double start, double end);
+
+    List<TouristAttractionEntity> findAllByVisitingDateContains(String visitingDate);
+
 }

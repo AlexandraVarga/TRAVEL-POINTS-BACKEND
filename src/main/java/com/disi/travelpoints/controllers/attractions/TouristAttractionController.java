@@ -1,6 +1,8 @@
 package com.disi.travelpoints.controllers.attractions;
 
+import com.disi.travelpoints.dto.IntervalSearchDto;
 import com.disi.travelpoints.dto.TouristAttractionDto;
+import com.disi.travelpoints.dto.TextSearchDto;
 import com.disi.travelpoints.services.TouristAttractionService;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.http.HttpStatus;
@@ -40,4 +42,15 @@ public class TouristAttractionController {
         touristAttractionService.deleteAttraction(attractionId);
         return new ResponseEntity<>("Tourist attraction deleted!", HttpStatus.OK);
     }
+
+    @GetMapping("/search")
+    public List<TouristAttractionDto> searchAttractions(@RequestBody TextSearchDto textSearchDto) {
+        return touristAttractionService.searchAttractions(textSearchDto);
+    }
+
+    @GetMapping("/search-interval")
+    public List<TouristAttractionDto> searchAttractionsByInterval(@RequestBody IntervalSearchDto intervalSearchDto) {
+        return touristAttractionService.searchAttractionsByInterval(intervalSearchDto);
+    }
+
 }
