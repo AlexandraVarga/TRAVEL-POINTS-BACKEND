@@ -43,12 +43,12 @@ public class TouristAttractionController {
         return new ResponseEntity<>("Tourist attraction deleted!", HttpStatus.OK);
     }
 
-    @GetMapping("/search")
+    @PostMapping("/search")
     public List<TouristAttractionDto> searchAttractions(@RequestBody TextSearchDto textSearchDto) {
         return touristAttractionService.searchAttractions(textSearchDto);
     }
 
-    @GetMapping("/search-interval")
+    @PostMapping("/search-interval")
     public List<TouristAttractionDto> searchAttractionsByInterval(@RequestBody IntervalSearchDto intervalSearchDto) {
         return touristAttractionService.searchAttractionsByInterval(intervalSearchDto);
     }

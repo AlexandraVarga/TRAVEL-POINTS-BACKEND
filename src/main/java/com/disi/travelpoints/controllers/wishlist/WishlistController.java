@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/wishlists")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class WishlistController {
 
     private final WishlistService wishlistService;
