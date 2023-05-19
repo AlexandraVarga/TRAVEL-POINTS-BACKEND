@@ -13,4 +13,8 @@ public class ReviewDto {
 
     private String review;
 
+    private Integer clientId;
+
+    private Integer touristAttractionId;
+
 }
