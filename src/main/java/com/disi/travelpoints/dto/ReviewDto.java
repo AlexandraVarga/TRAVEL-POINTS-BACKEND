@@ -17,4 +17,6 @@ public class ReviewDto {
 
     private Integer touristAttractionId;
 
+    private String clientName;
+
 }

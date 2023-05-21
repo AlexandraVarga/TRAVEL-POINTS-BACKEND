@@ -22,6 +22,7 @@ public class ReviewMapper {
                 .id(reviewEntity.getId())
                 .review(reviewEntity.getReview())
                 .clientId(reviewEntity.getClient().getId())
+                .clientName(reviewEntity.getClient().getFirstName() + " " + reviewEntity.getClient().getLastName())
                 .touristAttractionId(reviewEntity.getTouristAttractionReview().getId())
                 .build();
     }
