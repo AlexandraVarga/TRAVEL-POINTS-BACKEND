@@ -2,8 +2,7 @@ package com.disi.travelpoints.dto;
 
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder

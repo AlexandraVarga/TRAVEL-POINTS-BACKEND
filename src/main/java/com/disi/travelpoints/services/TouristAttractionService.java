@@ -50,7 +50,7 @@ public class TouristAttractionService {
         return touristAttractionMapper.toDto(savedAttraction);
     }
 
-    private TouristAttractionEntity findTouristAttractionEntity(Integer attractionId) {
+    public TouristAttractionEntity findTouristAttractionEntity(Integer attractionId) {
         return touristAttractionRepository.findById(attractionId)
                 .orElseThrow(() -> new IllegalArgumentException("Attraction with id " + attractionId + " doesn't exist"));
     }
